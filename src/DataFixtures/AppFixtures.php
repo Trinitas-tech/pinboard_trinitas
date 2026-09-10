@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
         }
 
         $pinsData = [
-            ['Salon lumineux', 'Ambiance douce pour un salon moderne et chaleureux.', 'https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?auto=format&fit=crop&w=700&q=80', 3],
+            ['Salon lumineux', 'Ambiance douce pour un salon moderne et chaleureux.', 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80', 3],
             ['Cuisine naturelle', 'Bois clair, plantes et rangements simples.', 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=700&q=80', 3],
             ['Coin lecture', 'Un espace calme pour lire et se detendre.', 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=700&q=80', 3],
             ['Palette graphique', 'Couleurs fortes pour une identite visuelle expressive.', 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=700&q=80', 3],
