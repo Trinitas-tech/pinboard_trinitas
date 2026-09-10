@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - PinBoard{% endblock %}
+
+{% block body %}
+    <section class="home-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Organisez vos inspirations visuelles</h1>
+                    <p class="lead text-muted mt-3">PinBoard permet de partager des images, retrouver des idees et construire une galerie personnelle claire et agreable.</p>
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        {% if app.user %}
+                            <a class="btn btn-danger btn-lg" href="{{ path('app_pin_index') }}">Voir les pins</a>
+                            <a class="btn btn-outline-dark btn-lg" href="{{ path('app_pin_create') }}">Ajouter une image</a>
+                        {% else %}
+                            <a class="btn btn-danger btn-lg" href="{{ path('app_register') }}">Commencer</a>
+                            <a class="btn btn-outline-dark btn-lg" href="{{ path('app_login') }}">Se connecter</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-collage">
+                        <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Architecture coloree">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?auto=format&fit=crop&w=900&q=80" alt="Decoration interieure">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Paysage inspire">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h2 class="h5">Partager</h2>
+                <p class="text-muted">Publiez vos images preferees avec un titre et une description.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="h5">Explorer</h2>
+                <p class="text-muted">Parcourez une grille de pins publies par les utilisateurs inscrits.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="h5">Gerer</h2>
+                <p class="text-muted">Modifiez ou supprimez uniquement les pins qui vous appartiennent.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

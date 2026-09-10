@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.imageName) }}
+    <div class="d-flex gap-2 mt-3">
+        <button class="btn btn-danger" type="submit">{{ button_label|default('Enregistrer') }}</button>
+        <a class="btn btn-outline-dark" href="{{ path('app_pin_index') }}">Retour</a>
+    </div>
+{{ form_end(form) }}

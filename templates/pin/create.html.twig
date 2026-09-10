@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creer un pin - PinBoard{% endblock %}
+
+{% block body %}
+    <section class="container form-page">
+        <h1 class="h2 mb-4">Creer un pin</h1>
+        {% include 'pin/_form.html.twig' with {button_label: 'Creer'} %}
+    </section>
+{% endblock %}

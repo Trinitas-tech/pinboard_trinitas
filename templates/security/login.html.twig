@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - PinBoard{% endblock %}
+
+{% block body %}
+    <section class="container form-page">
+        <h1 class="h2 mb-4">Se connecter</h1>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label" for="username">Email</label>
+                <input class="form-control" type="email" value="{{ last_username }}" name="_username" id="username" autocomplete="email" required autofocus>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Mot de passe</label>
+                <input class="form-control" type="password" name="_password" id="password" autocomplete="current-password" required>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button class="btn btn-danger" type="submit">Connexion</button>
+        </form>
+    </section>
+{% endblock %}

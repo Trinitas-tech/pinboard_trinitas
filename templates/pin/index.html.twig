@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pins - PinBoard{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2 mb-0">Tous les pins</h1>
+            <a class="btn btn-danger" href="{{ path('app_pin_create') }}">Creer un Pin</a>
+        </div>
+
+        {% if pins is empty %}
+            <p class="text-muted">Aucun pin pour le moment.</p>
+        {% else %}
+            <div class="pin-grid">
+                {% for pin in pins %}
+                    <article class="pin-card">
+                        <a href="{{ path('app_pin_show', {id: pin.id}) }}">
+                            <img src="{{ pin.imageName }}" alt="{{ pin.title }}">
+                        </a>
+                        <div class="p-3">
+                            <h2 class="h6 mb-1">
+                                <a class="text-dark text-decoration-none" href="{{ path('app_pin_show', {id: pin.id}) }}">{{ pin.title|length > 30 ? pin.title|slice(0, 30) ~ '...' : pin.title }}</a>
+                            </h2>
+                            <p class="small text-muted mb-1">Publie {{ pin.createdAt|ago }}</p>
+                            <p class="small mb-0">{{ pin.user.firstname }} {{ pin.user.lastname }}</p>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

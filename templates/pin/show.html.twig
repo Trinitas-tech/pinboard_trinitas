@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pin.title }} - PinBoard{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-7">
+                <img class="pin-detail-image" src="{{ pin.imageName }}" alt="{{ pin.title }}">
+            </div>
+            <div class="col-lg-5">
+                <p class="text-muted small mb-1">{{ pin.title|length > 30 ? pin.title|slice(0, 30) ~ '...' : pin.title }}</p>
+                <h1 class="h2">{{ pin.title }}</h1>
+                <p class="text-muted">{{ pin.description ?: 'Aucune description.' }}</p>
+                <dl class="row small">
+                    <dt class="col-5">Auteur</dt>
+                    <dd class="col-7">{{ pin.user.firstname }} {{ pin.user.lastname }}</dd>
+                    <dt class="col-5">Creation</dt>
+                    <dd class="col-7">{{ pin.createdAt|date('d/m/Y H:i') }}</dd>
+                    <dt class="col-5">Modification</dt>
+                    <dd class="col-7">{{ pin.updatedAt|date('d/m/Y H:i') }}</dd>
+                </dl>
+
+                <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-outline-dark" href="{{ path('app_pin_index') }}">Retour</a>
+                    {% if app.user and app.user == pin.user %}
+                        <a class="btn btn-warning" href="{{ path('app_pin_edit', {id: pin.id}) }}">Editer</a>
+                        <form method="post" action="{{ path('app_pin_delete', {id: pin.id}) }}" onsubmit="return confirm('Confirmer la suppression de ce pin ?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete_pin_' ~ pin.id) }}">
+                            <button class="btn btn-danger" type="submit">Supprimer</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

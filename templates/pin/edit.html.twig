@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un pin - PinBoard{% endblock %}
+
+{% block body %}
+    <section class="container form-page">
+        <h1 class="h2 mb-4">Modifier un pin</h1>
+        {% include 'pin/_form.html.twig' with {button_label: 'Modifier'} %}
+    </section>
+{% endblock %}
