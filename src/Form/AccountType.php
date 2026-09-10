@@ -16,7 +16,11 @@ class AccountType extends AbstractType
         $builder
             ->add('firstname', TextType::class, ['label' => 'Prenom'])
             ->add('lastname', TextType::class, ['label' => 'Nom'])
-            ->add('imageName', UrlType::class, ['label' => 'URL de la photo de profil']);
+            ->add('imageName', UrlType::class, [
+                'label' => 'URL de la photo de profil',
+                'help' => "Utilise une URL directe et publique vers l'image, pas l'adresse d'une page web.",
+                'attr' => ['placeholder' => 'https://exemple.com/photo.jpg'],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
